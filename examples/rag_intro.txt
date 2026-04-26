@@ -1,0 +1,22 @@
+An Introduction to Retrieval-Augmented Generation
+
+What is RAG?
+Retrieval-Augmented Generation, or RAG, is a technique for grounding the output of a large language model in a specific corpus of documents. Instead of relying solely on the parameters baked into the model during training, a RAG system fetches relevant passages from an external store at query time and provides them to the model as context. This allows the model to answer questions about information it was never trained on, including private, proprietary, or recent data.
+
+Why use RAG?
+There are three main reasons to choose RAG over fine-tuning. First, it is much cheaper: indexing a million documents costs a few dollars in compute, while fine-tuning on the same data could cost thousands. Second, it is updatable: when a document changes, you re-embed and re-index just that document, rather than retraining the model. Third, it is auditable: every answer can be traced back to the specific passages that produced it, which is essential for compliance and trust.
+
+The two pipelines
+A RAG system has two pipelines that share a vector store. The ingest pipeline runs once per document: it parses the file, splits the text into chunks, embeds each chunk into a vector, and writes the vectors to the store along with the original text. The query pipeline runs on every user question: it embeds the question, fetches the most similar chunks from the store, packages them as context, and sends both the question and the context to the language model.
+
+Chunking
+Chunking is the most consequential design choice in a RAG system. Chunks that are too small lose semantic context and produce fragmented citations. Chunks that are too large dilute the embedding signal and may exceed the embedding model's input limit. A common starting point is 200 to 500 tokens per chunk with some overlap between adjacent chunks, but the right size depends on the document type, the embedding model, and the typical query.
+
+Embedding models
+An embedding model maps a piece of text to a fixed-size vector such that semantically similar texts produce vectors that are close in the vector space. Open-source models like all-MiniLM-L6-v2 produce 384-dimensional vectors and run on a laptop CPU. Hosted models from OpenAI, Cohere, and Voyage produce higher-dimensional vectors with better recall but introduce per-query cost and latency.
+
+Vector stores
+A vector store is a database optimized for nearest-neighbor search over high-dimensional vectors. Open-source options include ChromaDB, Qdrant, Weaviate, and Milvus. Hosted options include Pinecone and the vector indexes built into Postgres (pgvector) and SQLite (sqlite-vss). For a few hundred thousand chunks, any of these will work; the choice depends mostly on operational preferences.
+
+Grounded prompting
+The final step is to instruct the language model to use only the provided context. This requires explicit prompt engineering: tell the model to ignore its prior knowledge, tell it how to format citations, and tell it what to say when the context does not contain the answer. Without these instructions, the model will fall back on its training data and may hallucinate plausible but incorrect answers.

@@ -1,0 +1,13 @@
+Grace Hopper: A Short Biography
+
+Grace Brewster Murray Hopper was born on December 9, 1906 in New York City. She showed an early aptitude for mathematics and engineering, famously dismantling alarm clocks as a child to understand how they worked. She earned her bachelor's degree in mathematics and physics from Vassar College in 1928 and went on to receive her master's and doctoral degrees from Yale, completing her PhD in mathematics in 1934. She was one of the few women to earn a doctorate in mathematics from Yale before World War II.
+
+Hopper joined the United States Navy Reserve in 1943, during World War II, and was assigned to the Bureau of Ordnance Computation Project at Harvard University. There she worked on the Mark I, one of the earliest electromechanical computers, under the direction of Howard Aiken. She wrote the first operations manual for the Mark I and became one of its primary programmers.
+
+After the war, Hopper joined the Eckert-Mauchly Computer Corporation, where she worked on the UNIVAC I, the first commercial computer produced in the United States. While at Eckert-Mauchly she developed the first compiler, called the A-0 system, which was released in 1952. A compiler translates human-readable source code into the machine instructions that a computer can execute. The idea was initially controversial; many of her colleagues believed that computers were only good for arithmetic and could not be made to understand language.
+
+Hopper went on to lead the team that developed FLOW-MATIC, the first English-like programming language, in the late 1950s. FLOW-MATIC heavily influenced the design of COBOL, which was standardized in 1959 and went on to become the dominant language for business data processing for decades. Hopper is often called the "mother of COBOL" for her role in its creation.
+
+She is also frequently credited with popularizing the term "debugging" after she and her team removed an actual moth from a relay in the Mark II computer in 1947. The moth was taped into the logbook with the note "first actual case of bug being found." The term itself predates this incident, but the story made it famous.
+
+Hopper retired from the Navy with the rank of Rear Admiral in 1986, at the age of 79, making her one of the oldest active-duty officers in U.S. military history. She continued to lecture and consult until her death on January 1, 1992. She was posthumously awarded the Presidential Medal of Freedom by President Barack Obama in 2016.
